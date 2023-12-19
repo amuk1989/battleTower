@@ -9,12 +9,20 @@ using Unity.IL2CPP.CompilerServices;
 [CreateAssetMenu(menuName = "ECS/Systems/" + nameof(HealthSystem))]
 public sealed class HealthSystem : UpdateSystem {
     private Filter _filter;
+    private Stash<HealthComponent> _healthStash;
     
     public override void OnAwake()
     {
         this._filter = this.World.Filter.With<HealthComponent>().Build();
+        _healthStash = World.GetStash<HealthComponent>();
     }
 
-    public override void OnUpdate(float deltaTime) {
+    public override void OnUpdate(float deltaTime) 
+    {
+        foreach (var entity in this._filter)
+        {
+            ref var healthComponent = ref _healthStash.Get(entity);
+            Debug.Log(healthComponent.HealthPoints);
+        }
     }
 }
