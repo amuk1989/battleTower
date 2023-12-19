@@ -21,5 +21,6 @@ namespace Enemy
     public struct EnemyComponent : IComponent
     {
         public Transform Transform;
+        public float Angle;
     }
 }
