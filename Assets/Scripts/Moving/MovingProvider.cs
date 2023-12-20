@@ -4,12 +4,12 @@ using Scellecs.Morpeh.Providers;
 using Unity.IL2CPP.CompilerServices;
 using UnityEngine;
 
-namespace Enemy
+namespace Moving
 {
     [Il2CppSetOption(Option.NullChecks, false)]
     [Il2CppSetOption(Option.ArrayBoundsChecks, false)]
     [Il2CppSetOption(Option.DivideByZeroChecks, false)]
-    public class EnemyProvider: MonoProvider<EnemyComponent>
+    public class MovingProvider: MonoProvider<MovingComponent>
     {
         
     }
@@ -18,7 +18,7 @@ namespace Enemy
     [Il2CppSetOption(Option.NullChecks, false)]
     [Il2CppSetOption(Option.ArrayBoundsChecks, false)]
     [Il2CppSetOption(Option.DivideByZeroChecks, false)]
-    public struct EnemyComponent : IComponent
+    public struct MovingComponent : IComponent
     {
         public Transform Transform;
         public float Angle;
